@@ -83,7 +83,7 @@ The dataset contains Bangla news headlines from multiple Bangladeshi newspapers 
 Most headlines fall between **5 and 7 tokens**, peaking at 6 words. Very few documents are shorter than 3 tokens or longer than 10.
 
 <p align="center">
-  <img src="figure/output_img_0.png" alt="Fig 1 — Token Count Distribution" width="700"/>
+  <img src="figures/output_img_0.png" alt="Fig 1 — Token Count Distribution" width="700"/>
 </p>
 
 > **Fig 1** — Distribution of Token Counts per Document. The peak at 6 tokens confirms the short-text nature of the dataset. Models must rely primarily on keyword-level features rather than deep contextual semantics.
@@ -95,7 +95,7 @@ Most headlines fall between **5 and 7 tokens**, peaking at 6 words. Very few doc
 The word cloud reveals that **political terms dominate** the vocabulary. Frequently occurring terms include leader names, action verbs, party names, and governance-related words. Sports and international terms also appear prominently.
 
 <p align="center">
-  <img src="figure/output_img_2.png" alt="Fig 2 — Word Cloud" width="700"/>
+  <img src="figures/output_img_2.png" alt="Fig 2 — Word Cloud" width="700"/>
 </p>
 
 > **Fig 2** — Word Cloud of Most Frequent Bangla Terms Across All Categories. Larger text = higher frequency. Political vocabulary clearly dominates the overall corpus.
@@ -107,7 +107,7 @@ The word cloud reveals that **political terms dominate** the vocabulary. Frequen
 The most frequent words across all categories are predominantly political (party names, leader titles, governance terms), followed by sports verbs (win, match, goal) and international event terms.
 
 <p align="center">
-  <img src="figure/newplot.png" alt="Fig 3 — Top 20 Frequent Words" width="700"/>
+  <img src="figures/newplot.png" alt="Fig 3 — Top 20 Frequent Words" width="700"/>
 </p>
 
 > **Fig 3** — Top 20 Most Frequent Bangla Words bar chart. Frequency counts shown alongside each term confirm the political dominance of the vocabulary in this 15,000-headline corpus.
@@ -129,7 +129,7 @@ Word-pair (bigram) analysis exposes deeper relational patterns that single words
 ### Pipeline Overview
 
 <p align="center">
-  <img src="figure/metho.drawio.png" alt="Fig 4 — Methodology Pipeline Flowchart" width="420"/>
+  <img src="figures/metho.drawio.png" alt="Fig 4 — Methodology Pipeline Flowchart" width="420"/>
 </p>
 
 > **Fig 4** — End-to-end methodology pipeline: Raw CSV → Clean & Tokenize → Generate Shingles → HashingTF Features → MinHashLSH → Pairwise Similarity Join + Approximate Nearest Neighbors → Similarity Score.
@@ -210,7 +210,7 @@ MinHash LSH hashes documents into buckets so similar documents are more likely t
 ### Cluster Size Distribution
 
 <p align="center">
-  <img src="figure/output_img_19.png" alt="Fig 5 — Cluster Size Distribution" width="700"/>
+  <img src="figures/output_img_19.png" alt="Fig 5 — Cluster Size Distribution" width="700"/>
 </p>
 
 > **Fig 5** — Cluster Size Distribution. The majority of documents fall into a single large cluster (Cluster 0), indicating strong topical overlap or broad content similarity. Smaller clusters capture niche or less frequent topics.
@@ -220,7 +220,7 @@ MinHash LSH hashes documents into buckets so similar documents are more likely t
 ### 2D PCA Cluster Visualization
 
 <p align="center">
-  <img src="figure/output_img_14.png" alt="Fig 6 — 2D PCA Scatter Plot" width="700"/>
+  <img src="figures/output_img_14.png" alt="Fig 6 — 2D PCA Scatter Plot" width="700"/>
 </p>
 
 > **Fig 6** — 2D PCA Scatter Plot of Clusters. Clear spatial separation is visible across all cluster groups. Cluster 0 (largest) is most dispersed, indicating broad thematic diversity. Tightly packed smaller clusters represent niche topic groupings.
@@ -257,7 +257,7 @@ MinHash LSH hashes documents into buckets so similar documents are more likely t
 ### MinHashLSH Distance Results
 
 <p align="center">
-  <img src="figure/dist.png" alt="Fig 7 — MinHashLSH Distance" width="700"/>
+  <img src="figures/dist.png" alt="Fig 7 — MinHashLSH Distance" width="700"/>
 </p>
 
 > **Fig 7** — MinHashLSH pairwise distance output. Each row shows a headline pair and their computed approximate distance. Values close to 0 indicate near-identical headlines; values near 0.75 indicate moderate similarity.
@@ -267,7 +267,7 @@ MinHash LSH hashes documents into buckets so similar documents are more likely t
 ### Jaccard Similarity Distribution
 
 <p align="center">
-  <img src="figure/jaccard.png" alt="Fig 8 — Jaccard Similarity" width="700"/>
+  <img src="figures/jaccard.png" alt="Fig 8 — Jaccard Similarity" width="700"/>
 </p>
 
 > **Fig 8** — Distribution of Jaccard Similarity Scores (1 − distance). A **bimodal pattern** with peaks near **0.1–0.2** (moderately similar pairs) and **1.0** (near-identical duplicate headlines) confirms both dataset heterogeneity and the effectiveness of the similarity detection approach.
@@ -277,7 +277,7 @@ MinHash LSH hashes documents into buckets so similar documents are more likely t
 ### Precision vs. Distance Threshold
  
 <p align="center">
-  <img src="figure/output_img_16.png" alt="Fig 7 — Precision vs. Distance Threshold" width="700"/>
+  <img src="figures/output_img_16.png" alt="Fig 7 — Precision vs. Distance Threshold" width="700"/>
 </p>
  
 > **Fig 7** — Analytical Line Chart of Precision vs. Distance Threshold. Precision rises sharply and plateaus near 1.0 as the threshold increases. Zero false positives detected at thresholds ≥ 0.6 across all hash table configurations, supporting the efficacy of the MinHashLSH approach for Bangla headlines.
@@ -287,7 +287,7 @@ MinHash LSH hashes documents into buckets so similar documents are more likely t
 ### Recall vs. Number of Hash Tables
  
 <p align="center">
-  <img src="figure/output_img_17.png" alt="Fig 10 — Recall vs. Hash Tables" width="700"/>
+  <img src="figures/output_img_17.png" alt="Fig 10 — Recall vs. Hash Tables" width="700"/>
 </p>
  
 > **Fig 10** — Analytical Line Chart of Recall vs. Number of Hash Tables. Recall increases steadily with additional hash tables and stabilizes beyond 8 tables — suggesting **8–12 tables** as the optimal trade-off between computational cost and similarity coverage for Bangla headline clustering.
