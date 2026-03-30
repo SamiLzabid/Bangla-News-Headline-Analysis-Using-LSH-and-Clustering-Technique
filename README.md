@@ -1,4 +1,4 @@
-# Analysis of Bangla News Headlines Using LSH and Clustering Techniques
+# Bangla News Data Analytics & Similarity Search System
 
 [![University](https://img.shields.io/badge/East%20West%20University-Bangladesh-blue)](https://www.ewubd.edu/)
 [![Course](https://img.shields.io/badge/Course-CSE%20488-orange)](/)
